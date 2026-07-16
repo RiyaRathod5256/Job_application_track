@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account | JobPortal</title>
+
+    <link rel="stylesheet" href="/static/css/register.css">
+</head>
+<body>
+
+<div class="container">
+
+    <div class="register-card">
+
+        <div class="logo">
+            <h1>JobPortal</h1>
+            <p>Create your account</p>
+        </div>
+
+        <form id="registerForm" novalidate>
+
+            <!-- Username -->
+
+            <div class="form-group">
+
+                <label for="username">Username</label>
+
+                <input
+                    type="text"
+                    id="username"
+                    name="username"
+                    placeholder="Enter username">
+
+                <small
+                    id="usernameError"
+                    class="error">
+                </small>
+
+            </div>
+
+
+            <!-- Email -->
+
+            <div class="form-group">
+
+                <label for="useremail">Email</label>
+
+                <input
+                    type="email"
+                    id="useremail"
+                    name="useremail"
+                    placeholder="Enter email">
+
+                <small
+                    id="emailError"
+                    class="error">
+                </small>
+
+            </div>
+
+
+            <!-- Phone Number -->
+
+            <div class="form-group">
+
+                <label for="userphonenumber">
+
+                    Phone Number
+
+                </label>
+
+                <input
+                    type="tel"
+                    id="userphonenumber"
+                    name="userphonenumber"
+                    placeholder="Enter phone number"
+                    maxlength="10">
+
+                <small
+                    id="phoneError"
+                    class="error">
+                </small>
+
+            </div>
+
+
+            <!-- Password -->
+
+            <div class="form-group">
+
+                <label for="userpassword">
+
+                    Password
+
+                </label>
+
+                <div class="password-wrapper">
+
+                    <input
+                        type="password"
+                        id="userpassword"
+                        name="userpassword"
+                        placeholder="Enter password">
+
+                    <button
+                        type="button"
+                        class="eye-btn"
+                        id="togglePassword">
+
+                        👁
+
+                    </button>
+
+                </div>
+
+                <small
+                    id="passwordError"
+                    class="error">
+                </small>
+
+                <div class="strength-container">
+
+                    <div id="strengthBar"></div>
+
+                </div>
+
+                <small id="strengthText"></small>
+
+            </div>
+
+
+            <!-- Confirm Password -->
+
+            <div class="form-group">
+
+                <label for="confirmpassword">
+
+                    Confirm Password
+
+                </label>
+
+                <div class="password-wrapper">
+
+                    <input
+                        type="password"
+                        id="confirmpassword"
+                        name="confirmpassword"
+                        placeholder="Confirm password">
+
+                    <button
+                        type="button"
+                        class="eye-btn"
+                        id="toggleConfirm">
+
+                        👁
+
+                    </button>
+
+                </div>
+
+                <small
+                    id="confirmError"
+                    class="error">
+                </small>
+
+            </div>
+
+
+            <button
+                id="registerBtn"
+                type="submit">
+
+                Create Account
+
+            </button>
+
+        </form>
+
+        <div id="serverMessage"></div>
+
+        <p class="login-link">
+
+            Already have an account?
+
+            <a href="/login">
+
+                Login
+
+            </a>
+
+        </p>
+
+    </div>
+
+</div>
+
+<script src="/static/js/register.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+# Virtual environments
+venv/
+.venv/
+
+# Environment variables
+.env
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# VS Code settings (optional)
+.vscode/
+
+# Pytest cache
+.pytest_cache/
+
+# Build files
+build/
+dist/
+*.egg-info/
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db

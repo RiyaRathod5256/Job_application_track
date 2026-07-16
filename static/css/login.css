@@ -1,0 +1,419 @@
+/* =====================================
+   Google Font
+===================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+
+/* =====================================
+   Reset
+===================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+
+/* =====================================
+   Body
+===================================== */
+
+body{
+
+    background:#F8FAFC;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    min-height:100vh;
+
+    padding:40px 20px;
+
+}
+
+
+/* =====================================
+   Container
+===================================== */
+
+.container{
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:center;
+
+}
+
+
+/* =====================================
+   Login Card
+===================================== */
+
+.login-card{
+
+    width:100%;
+
+    max-width:450px;
+
+    background:#ffffff;
+
+    padding:40px;
+
+    border-radius:18px;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.08);
+
+    animation:fadeUp .5s ease;
+
+}
+
+
+/* =====================================
+   Animation
+===================================== */
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+/* =====================================
+   Logo
+===================================== */
+
+.logo{
+
+    text-align:center;
+
+    margin-bottom:30px;
+
+}
+
+.logo h1{
+
+    color:#2563EB;
+
+    font-size:32px;
+
+    margin-bottom:10px;
+
+}
+
+.logo p{
+
+    color:#64748B;
+
+    font-size:15px;
+
+}
+
+
+/* =====================================
+   Form Group
+===================================== */
+
+.form-group{
+
+    margin-bottom:22px;
+
+}
+
+.form-group label{
+
+    display:block;
+
+    margin-bottom:8px;
+
+    font-size:15px;
+
+    font-weight:500;
+
+    color:#1E293B;
+
+}
+
+.form-group input{
+
+    width:100%;
+
+    padding:14px 15px;
+
+    border:1px solid #CBD5E1;
+
+    border-radius:10px;
+
+    font-size:15px;
+
+    outline:none;
+
+    transition:
+        border-color .3s,
+        box-shadow .3s,
+        transform .2s;
+
+}
+
+.form-group input:hover{
+
+    border-color:#94A3B8;
+
+}
+
+.form-group input:focus{
+
+    border-color:#2563EB;
+
+    box-shadow:0 0 0 5px rgba(37,99,235,.15);
+
+    transform:scale(1.01);
+
+}
+
+
+/* =====================================
+   Password
+===================================== */
+
+.password-wrapper{
+
+    position:relative;
+
+}
+
+.eye-btn{
+
+    position:absolute;
+
+    top:50%;
+
+    right:12px;
+
+    transform:translateY(-50%);
+
+    background:none;
+
+    border:none;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+    color:#64748B;
+
+    transition:.3s;
+
+}
+
+.eye-btn:hover{
+
+    color:#2563EB;
+
+}
+
+
+/* =====================================
+   Error Message
+===================================== */
+
+.error{
+
+    display:block;
+
+    margin-top:6px;
+
+    color:#DC2626;
+
+    font-size:13px;
+
+}
+
+
+/* =====================================
+   Success & Error Border
+===================================== */
+
+.input-success{
+
+    border:2px solid #22C55E !important;
+
+}
+
+.input-error{
+
+    border:2px solid #EF4444 !important;
+
+}
+
+
+/* =====================================
+   Login Button
+===================================== */
+
+#loginBtn{
+
+    width:100%;
+
+    padding:15px;
+
+    margin-top:8px;
+
+    background:#2563EB;
+
+    color:white;
+
+    border:none;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    transition:
+        background-color .3s,
+        transform .2s,
+        box-shadow .3s;
+
+}
+
+#loginBtn:hover{
+
+    background:#1D4ED8;
+
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 10px 20px rgba(37,99,235,.25);
+
+}
+
+#loginBtn:active{
+
+    transform:scale(.98);
+
+}
+
+#loginBtn:disabled{
+
+    opacity:.7;
+
+    cursor:not-allowed;
+
+    transform:none;
+
+}
+
+
+/* =====================================
+   Server Message
+===================================== */
+
+#serverMessage{
+
+    text-align:center;
+
+    margin-top:20px;
+
+    font-size:15px;
+
+    font-weight:500;
+
+    min-height:20px;
+
+}
+
+
+/* =====================================
+   Success / Failure
+===================================== */
+
+.success{
+
+    color:#16A34A;
+
+}
+
+.failure{
+
+    color:#DC2626;
+
+}
+
+
+/* =====================================
+   Register Link
+===================================== */
+
+.register-link{
+
+    text-align:center;
+
+    margin-top:25px;
+
+    color:#64748B;
+
+}
+
+.register-link a{
+
+    color:#2563EB;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+}
+
+.register-link a:hover{
+
+    text-decoration:underline;
+
+}
+
+
+/* =====================================
+   Responsive
+===================================== */
+
+@media(max-width:500px){
+
+    .login-card{
+
+        padding:30px 22px;
+
+    }
+
+    .logo h1{
+
+        font-size:28px;
+
+    }
+
+}

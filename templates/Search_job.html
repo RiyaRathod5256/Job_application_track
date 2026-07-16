@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Job Search | JobPortal</title>
+
+    <link rel="stylesheet"
+          href="/static/css/job_search.css">
+
+</head>
+
+<body>
+
+    <!-- ===========================
+            Navbar
+    ============================ -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+
+            <h2>JobPortal</h2>
+
+        </div>
+
+        <div class="nav-menu">
+
+            <a href="/jobs">Search Jobs</a>
+
+            <a href="/saved-jobs">Saved Jobs</a>
+
+            <button id="logoutBtn">
+
+                Logout
+
+            </button>
+
+        </div>
+
+    </nav>
+
+
+    <!-- ===========================
+            Hero Section
+    ============================ -->
+
+    <section class="hero">
+
+        <h1>
+
+            Find Your Dream Job
+
+        </h1>
+
+        <p>
+
+            Search jobs from thousands of companies.
+
+        </p>
+
+    </section>
+
+
+    <!-- ===========================
+            Search Box
+    ============================ -->
+
+    <section class="search-section">
+
+        <div class="search-box">
+
+            <input
+                type="text"
+                id="keyword"
+                placeholder="Python Developer">
+
+            <input
+                type="text"
+                id="location"
+                placeholder="Indore">
+
+            <button
+                onclick="searchJobs()">
+
+                Search Jobs
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ===========================
+            Job Results
+    ============================ -->
+
+    <section class="results-section">
+
+        <h2>
+
+            Available Jobs
+
+        </h2>
+
+        <div
+            id="jobs"
+            class="jobs-container">
+
+            <!-- Your JavaScript will insert cards here -->
+
+        </div>
+
+    </section>
+
+
+    <!-- ===========================
+            Footer
+    ============================ -->
+
+    <footer>
+
+        <p>
+
+            © 2026 JobPortal
+
+        </p>
+
+    </footer>
+
+
+    <script src="/static/js/search_job.js"></script>
+
+</body>
+
+</html>
