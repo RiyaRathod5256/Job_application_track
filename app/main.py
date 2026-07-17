@@ -6,6 +6,7 @@ from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from app.services.auth import validate_session
+from app.routers.company import company_router
 
 app = FastAPI()
 app.mount("/static", StaticFiles(directory="static"), name="static")
@@ -13,6 +14,7 @@ templates = Jinja2Templates(directory="templates")
 
 app.include_router(job_router)
 app.include_router(user_router)
+app.include_router(company_router)
 
 @app.get("/register")
 async def register_page(request: Request):
@@ -48,7 +50,7 @@ async def dashboard(
     user=Depends(validate_session)
 ):
     return templates.TemplateResponse(
-        "index.html",
+        "login.html",
         {
             "request": request,
             "user": user

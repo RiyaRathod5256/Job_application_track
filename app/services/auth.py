@@ -54,7 +54,7 @@ def validate_session(Session_id:str|None=Cookie(default=None)):
 
 
       user_id = session[0]
-      expires_at = session[1]
+      expires_at = session[2]
       print(type(expires_at))
       
 

@@ -57,6 +57,6 @@ class Company(BaseModel):
     company:str
     location:str
     jobtype:str|None
-    salary:str|None
+    salary:int|None
     website: HttpUrl
     
