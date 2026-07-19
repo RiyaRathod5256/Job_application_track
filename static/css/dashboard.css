@@ -1,0 +1,509 @@
+/* ===========================
+        Google Font
+=========================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* ===========================
+        Global
+=========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#f4f7fb;
+    color:#333;
+    min-height:100vh;
+}
+
+/* ===========================
+        Navbar
+=========================== */
+
+.navbar{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:18px 60px;
+
+    background:#ffffff;
+
+    box-shadow:0 3px 10px rgba(0,0,0,.08);
+
+    position:sticky;
+    top:0;
+    z-index:100;
+
+}
+
+.logo h2{
+
+    color:#2563eb;
+    font-size:28px;
+
+}
+
+#logoutBtn{
+
+    padding:10px 22px;
+
+    border:none;
+
+    border-radius:8px;
+
+    background:#ef4444;
+
+    color:white;
+
+    font-size:15px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+#logoutBtn:hover{
+
+    background:#dc2626;
+
+}
+
+/* ===========================
+        Header
+=========================== */
+
+.dashboard-header{
+
+    text-align:center;
+
+    margin:40px 0 35px;
+
+}
+
+.dashboard-header h1{
+
+    font-size:38px;
+
+    color:#1e293b;
+
+}
+
+.dashboard-header p{
+
+    margin-top:10px;
+
+    color:#64748b;
+
+    font-size:17px;
+
+}
+
+/* ===========================
+        Statistics Cards
+=========================== */
+
+.stats-container{
+
+    width:90%;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+
+    gap:20px;
+
+}
+
+.stat-card{
+
+    background:white;
+
+    border-radius:15px;
+
+    padding:25px;
+
+    text-align:center;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+}
+
+.stat-card:hover{
+
+    transform:translateY(-5px);
+
+}
+
+.stat-card h2{
+
+    font-size:34px;
+
+    margin-bottom:8px;
+
+}
+
+.stat-card p{
+
+    color:#555;
+
+    font-weight:500;
+
+}
+
+.total{
+
+    border-top:5px solid #2563eb;
+
+}
+
+.applied{
+
+    border-top:5px solid #3b82f6;
+
+}
+
+.interview{
+
+    border-top:5px solid #f59e0b;
+
+}
+
+.selected{
+
+    border-top:5px solid #22c55e;
+
+}
+
+.rejected{
+
+    border-top:5px solid #ef4444;
+
+}
+
+/* ===========================
+        Applications
+=========================== */
+
+.applications-section{
+
+    width:90%;
+
+    margin:50px auto;
+
+}
+
+.applications-section h2{
+
+    margin-bottom:25px;
+
+    color:#1e293b;
+
+}
+
+.applications-container{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(360px,1fr));
+
+    gap:25px;
+
+}
+
+/* ===========================
+        Application Card
+=========================== */
+
+.application-card{
+
+    background:white;
+
+    border-radius:18px;
+
+    padding:22px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+}
+
+.application-card:hover{
+
+    transform:translateY(-6px);
+
+}
+
+.company{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:18px;
+
+}
+
+.company h3{
+
+    color:#1e293b;
+
+    font-size:24px;
+
+}
+
+.badge{
+
+    color:white;
+
+    padding:6px 14px;
+
+    border-radius:25px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+/* Badge Colors */
+
+.badge.applied{
+
+    background:#3b82f6;
+
+}
+
+.badge.interview{
+
+    background:#f59e0b;
+
+}
+
+.badge.selected{
+
+    background:#22c55e;
+
+}
+
+.badge.rejected{
+
+    background:#ef4444;
+
+}
+
+.info{
+
+    margin:18px 0;
+
+}
+
+.info p{
+
+    margin:10px 0;
+
+    color:#555;
+
+    font-size:15px;
+
+}
+
+.info strong{
+
+    color:#111827;
+
+}
+
+/* ===========================
+        Website
+=========================== */
+
+.website{
+
+    display:inline-block;
+
+    margin-top:10px;
+
+    text-decoration:none;
+
+    color:#2563eb;
+
+    font-weight:600;
+
+}
+
+.website:hover{
+
+    text-decoration:underline;
+
+}
+
+/* ===========================
+        Status Dropdown
+=========================== */
+
+.status-select{
+
+    width:100%;
+
+    margin-top:20px;
+
+    padding:12px;
+
+    border:1px solid #d1d5db;
+
+    border-radius:10px;
+
+    outline:none;
+
+    font-size:15px;
+
+    background:white;
+
+}
+
+.status-select:focus{
+
+    border-color:#2563eb;
+
+}
+
+/* ===========================
+        Buttons
+=========================== */
+
+.buttons{
+
+    display:flex;
+
+    gap:15px;
+
+    margin-top:22px;
+
+}
+
+.buttons button{
+
+    flex:1;
+
+    border:none;
+
+    padding:12px;
+
+    border-radius:10px;
+
+    font-size:15px;
+
+    cursor:pointer;
+
+    color:white;
+
+    transition:.3s;
+
+}
+
+.update-btn{
+
+    background:#2563eb;
+
+}
+
+.update-btn:hover{
+
+    background:#1d4ed8;
+
+}
+
+.delete-btn{
+
+    background:#ef4444;
+
+}
+
+.delete-btn:hover{
+
+    background:#dc2626;
+
+}
+
+/* ===========================
+        Empty State
+=========================== */
+
+.empty-state{
+
+    width:90%;
+
+    margin:60px auto;
+
+    text-align:center;
+
+    background:white;
+
+    padding:60px;
+
+    border-radius:20px;
+
+    box-shadow:0 10px 20px rgba(0,0,0,.08);
+
+}
+
+.empty-state h2{
+
+    color:#334155;
+
+    margin-bottom:12px;
+
+}
+
+.empty-state p{
+
+    color:#64748b;
+
+}
+
+/* ===========================
+        Responsive
+=========================== */
+
+@media(max-width:768px){
+
+    .navbar{
+
+        padding:15px 20px;
+
+    }
+
+    .dashboard-header h1{
+
+        font-size:28px;
+
+    }
+
+    .applications-container{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .buttons{
+
+        flex-direction:column;
+
+    }
+
+}

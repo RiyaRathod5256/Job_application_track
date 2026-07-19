@@ -66,17 +66,14 @@ def validate_session(Session_id:str|None=Cookie(default=None)):
 
 
       if datetime.now() > expires_at:
-        print("Session expired")
-        return {"msg":"session_expired"}
-      
-
-      if not session:
-              raise HTTPException(
+       raise HTTPException(
             status_code=401,
-            detail="Invalid session"
+            detail="Session expired"
         )
-      else:
-        return user_id
+      
+      return user_id
+        
+
            
       
 def session_pop(Session_id):

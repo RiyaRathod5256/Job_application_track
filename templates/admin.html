@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Job Application Tracker</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <link rel="stylesheet" href="/static/css/admin.css">
+</head>
+
+<body>
+
+    <!-- ================= Sidebar ================= -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+            <i class="fa-solid fa-briefcase"></i>
+            <h2>JobTracker</h2>
+        </div>
+
+        <nav>
+
+            <button class="menu-btn active" data-page="dashboard">
+                <i class="fa-solid fa-house"></i>
+                <span>Dashboard</span>
+            </button>
+
+            <button class="menu-btn" data-page="users">
+                <i class="fa-solid fa-users"></i>
+                <span>Users</span>
+            </button>
+
+            <button class="menu-btn" data-page="applications">
+                <i class="fa-solid fa-file-lines"></i>
+                <span>Applications</span>
+            </button>
+
+        </nav>
+
+        <button class="logout-btn" id="logoutBtn">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            <span>Logout</span>
+        </button>
+
+    </aside>
+
+    <!-- ================= Main Content ================= -->
+
+    <main class="main-content">
+
+        <!-- Topbar -->
+
+        <header class="topbar">
+
+            <div>
+                <h1>Admin Dashboard</h1>
+                <p>Welcome back, Admin 👋</p>
+            </div>
+
+            <div class="admin-profile">
+                <i class="fa-solid fa-user-shield"></i>
+                <span>Admin</span>
+            </div>
+
+        </header>
+
+        <!-- ================= Dynamic Content ================= -->
+
+        <section id="content">
+
+            <!-- ================= Dashboard ================= -->
+
+            <section id="dashboard-page">
+
+                <div class="cards">
+
+                    <div class="card">
+                        <h3>Total Users</h3>
+                        <p id="totalUsers">0</p>
+                    </div>
+
+                    <div class="card">
+                        <h3>Total Applications</h3>
+                        <p id="totalApplications">0</p>
+                    </div>
+
+                    <div class="card">
+                        <h3>Applications Today</h3>
+                        <p id="todayApplications">0</p>
+                    </div>
+
+                </div>
+
+                <div class="table-container">
+
+                    <h2>Recent Applications</h2>
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+                                <th>Candidate</th>
+                                <th>Company</th>
+                                <th>Status</th>
+                                <th>Date</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="recentApplications">
+
+                            <!-- Loaded from backend -->
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+            <!-- ================= Users ================= -->
+
+            <section id="users-page" style="display:none;">
+
+                <div class="table-container">
+
+                    <h2>Users</h2>
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Applications</th>
+                                <th>Action</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="usersTable">
+
+                            <!-- Loaded from backend -->
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+            <!-- ================= Applications ================= -->
+
+            <section id="applications-page" style="display:none;">
+
+                <div class="table-container">
+
+                    <h2>Applications</h2>
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+                                <th>Candidate</th>
+                                <th>Company</th>
+                                <th>Status</th>
+                                <th>Date</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="applicationsTable">
+
+                            <!-- Loaded from backend -->
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+        </section>
+
+    </main>
+
+    <script src="/static/js/admin.js"></script>
+
+</body>
+</html>

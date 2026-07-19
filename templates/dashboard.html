@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>My Applications</title>
+
+    <link rel="stylesheet"
+          href="/static/css/dashboard.css">
+
+</head>
+
+<body>
+
+    <!-- ==========================
+            Navbar
+    =========================== -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+
+            <h2>JobPortal</h2>
+
+        </div>
+
+        
+
+    </nav>
+
+
+    <!-- ==========================
+            Dashboard Heading
+    =========================== -->
+
+    <section class="dashboard-header">
+
+        <h1>
+
+            My Job Applications
+
+        </h1>
+
+        <p>
+
+            Track your job applications and monitor your progress.
+
+        </p>
+
+    </section>
+
+
+
+    <!-- ==========================
+            Tracking Cards
+    =========================== -->
+
+    <section class="stats-container">
+
+        <div class="stat-card total">
+
+            <h2 id="totalJobs">0</h2>
+
+            <p>Total Applications</p>
+
+        </div>
+
+        <div class="stat-card applied">
+
+            <h2 id="appliedJobs">0</h2>
+
+            <p>Applied</p>
+
+        </div>
+
+        <div class="stat-card interview">
+
+            <h2 id="interviewJobs">0</h2>
+
+            <p>Interview</p>
+
+        </div>
+
+        <div class="stat-card selected">
+
+            <h2 id="selectedJobs">0</h2>
+
+            <p>Selected</p>
+
+        </div>
+
+        <div class="stat-card rejected">
+
+            <h2 id="rejectedJobs">0</h2>
+
+            <p>Rejected</p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==========================
+            Applications
+    =========================== -->
+
+    <section class="applications-section">
+
+        <h2>
+
+            Your Applications
+
+        </h2>
+
+        <div id="applicationsContainer"
+             class="applications-container">
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==========================
+            Empty State
+    =========================== -->
+
+    <div id="emptyState"
+         class="empty-state"
+         style="display:none;">
+
+        <h2>
+
+            No Applications Found
+
+        </h2>
+
+        <p>
+
+            Start applying for jobs to see them here.
+
+        </p>
+
+    </div>
+
+
+
+    <script src="/static/js/dashboard.js"></script>
+
+</body>
+
+</html>

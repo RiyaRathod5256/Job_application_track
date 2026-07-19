@@ -57,6 +57,10 @@ class Company(BaseModel):
     company:str
     location:str
     jobtype:str|None
-    salary:int|None
+    salary:int|str|None
     website: HttpUrl
     
+from pydantic import BaseModel
+
+class UpdateStatus(BaseModel):
+    job_status: str

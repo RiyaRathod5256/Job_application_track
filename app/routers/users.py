@@ -40,3 +40,4 @@ async def logout_user(response:Response,Session_id:str|None=Cookie()):
     return {
         "msg": "Logged out successfully."
     }
+

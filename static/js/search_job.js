@@ -46,6 +46,7 @@ function displayJobs(jobs){
         </div>
 
         `;
+        console.log(job)
 
     });
 
@@ -89,7 +90,13 @@ logoutBtn.addEventListener("click", async () => {
 });
 async function saveJob(job) {
 
+    
+    console.log(job);
+
     try {
+
+        console.log(job);
+        console.log(JSON.stringify(job, null, 2));
 
         const response = await fetch("/job/save", {
 
@@ -106,6 +113,10 @@ async function saveJob(job) {
         });
 
         const data = await response.json();
+        console.log("Response:", data);
+        console.log("Status:", response.status);
+        console.log(data);
+  
 
         if (response.ok) {
 
