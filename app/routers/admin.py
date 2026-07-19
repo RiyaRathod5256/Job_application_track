@@ -1,10 +1,13 @@
 from fastapi import APIRouter,Response,Depends,Request,Body,HTTPException,Cookie
-from app.services.auth import validate_session
+from app.services.auth import validate_session,admin_required
 from app.database import get_connection
 admin_router=APIRouter()
 
 @admin_router.get("/admin/users/")
 async def get_all_users(Session_id:str=Cookie(),user_id=Depends(validate_session)):
+
+    role=admin_required(user_id)
+
     conn=get_connection()
     cursor=conn.cursor()
 

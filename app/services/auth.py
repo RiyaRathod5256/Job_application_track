@@ -94,5 +94,32 @@ def session_pop(Session_id):
       cursor.close()
       return {"msg":"log out"}
 
+def check_role(user_id):
+     try:
+        conn=get_connection()
+        cursor=conn.cursor()
+        
+        cursor.execute("select role from users where user_id=%s",(user_id[0],))
+        role=cursor.fetchone()
+        return role[0]
+     except Exception as e:
+           raise (e)
+          
+def admin_required(user_id):
+     role=check_role(user_id)
+     if role!="admin":
+          raise HTTPException(status_code=402,details="Unauthorized")
+     return role
+          
+def user_required(user_id):
+     role=check_role(user_id)        
+     
+     if role!="user":
+          raise HTTPException(status_code=402,details="unauthorized user")
+     return role
+
+     
+     
+
 
 

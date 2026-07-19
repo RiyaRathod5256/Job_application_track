@@ -1,7 +1,7 @@
 from fastapi import APIRouter,Response,Depends,Request,Cookie
 from app.schema.schema import User,Userlogin
 from app.services.user_logic import register_user,login_user
-from app.services.auth import validate_session,session_pop
+from app.services.auth import validate_session,session_pop,check_role
 
 user_router=APIRouter()
 
@@ -24,6 +24,8 @@ async def login(credential:Userlogin,response:Response):
         max_age=86400)
     print(response)
     print(response.headers)
+
+    
     return{
         "msg":"Login Successfully"
     }
