@@ -99,7 +99,7 @@ def check_role(user_id):
         conn=get_connection()
         cursor=conn.cursor()
         
-        cursor.execute("select role from users where user_id=%s",(user_id[0],))
+        cursor.execute("select role from users where user_id=%s",(user_id,))
         role=cursor.fetchone()
         return role[0]
      except Exception as e:
@@ -117,6 +117,8 @@ def user_required(user_id):
      if role!="user":
           raise HTTPException(status_code=402,details="unauthorized user")
      return role
+
+
 
      
      

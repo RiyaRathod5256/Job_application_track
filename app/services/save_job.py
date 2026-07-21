@@ -30,12 +30,20 @@ def save_job_db(job,user_id):
         cursor.execute("select company_id from companies where company_name=%s",(company_name,))
         company=cursor.fetchone()
 
+    user_applications=cursor.execute("select company_id,job_role,job_status,job_location from job_applications where user_id=%s",(user_id,))
+    user_applications=cursor.fetchall()
+    frontend_job=(user_id,company[0],job_role,"applied",company_location)
     
-    cursor.execute("insert into job_applications(user_id,company_id,job_role,job_status,job_location,applied_date) values (%s,%s,%s,%s,%s,%s)",(user_id,company[0],job_role,"applied",company_location,datetime.now(UTC)))
+
+    if frontend_job in user_applications:
+        return{"message":"already added"}
+    else:
+        cursor.execute("insert into job_applications(user_id,company_id,job_role,job_status,job_location,applied_date) values (%s,%s,%s,%s,%s,%s)",(user_id,company[0],job_role,"applied",company_location,datetime.now(UTC)))
+    
     conn.commit()
     cursor.close()
     conn.close()
-    return {"msg":"saved_job"}
+    return {"message":"saved_job"}
 
 def my_applications(user_id):
 

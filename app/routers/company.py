@@ -12,9 +12,9 @@ async def save__company_job(user_id=Depends(validate_session),job:Company|None=B
       result=save_job_db(job,user_id)
 
       if result:
-            return("Saved job successfully")
+            return{"message":"Saved job successfully"}
       raise HTTPException(status_code=400,detail="Unable to save job")
-
+      
 
       
 

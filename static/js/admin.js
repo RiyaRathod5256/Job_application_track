@@ -67,6 +67,25 @@ async function loadDashboard() {
         document.getElementById("totalUsers").textContent = data.total_users;
         document.getElementById("totalApplications").textContent = data.total_applications;
         document.getElementById("todayApplications").textContent = data.today_applications;
+        
+        const tbody =
+            document.getElementById("recentApplications");
+
+        tbody.innerHTML = "";
+
+        data.recent_applications.forEach(app => {
+
+            tbody.innerHTML += `
+                <tr>
+                    <td>${app.username}</td>
+                    <td>${app.company}</td>
+                    <td>${app.status}</td>
+                    <td>${app.date}</td>
+                </tr>
+            `;
+
+        });
+
 
     }
     catch (error) {
@@ -239,7 +258,43 @@ menuButtons.forEach(button => {
 // ==============================
 // Default Page
 // ==============================
+const logoutBtn = document.getElementById("logoutBtn");
 
+logoutBtn.addEventListener("click", async () => {
+
+    try {
+
+        const response = await fetch("/logout", {
+
+            method: "GET",
+
+            credentials: "include"
+
+        });
+
+        if (response.ok) {
+
+            window.location.href = "/";
+
+        }
+
+        else {
+
+            alert("Logout failed.");
+
+        }
+
+    }
+
+    catch (error) {
+
+        console.error(error);
+
+        alert("Unable to connect to server.");
+
+    }
+
+});
 showPage("dashboard");
 
 loadDashboard();

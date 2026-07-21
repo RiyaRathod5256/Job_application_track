@@ -39,7 +39,7 @@ function displayJobs(jobs){
             <a href="${job.website}" target="_blank">
                 Apply Now
             </a>
-            <button class="save-btn" onclick='saveJob(${JSON.stringify(job)})'>
+            <button class="save-btn" onclick='saveJob(${JSON.stringify(job)},this)'>
                 Save Job
             </button>
 
@@ -88,7 +88,7 @@ logoutBtn.addEventListener("click", async () => {
     }
 
 });
-async function saveJob(job) {
+async function saveJob(job,button) {
 
     
     console.log(job);
@@ -120,19 +120,10 @@ async function saveJob(job) {
 
         if (response.ok) {
 
-            alert(data.message);
+        button.innerText = "Already Saved ✓";
+        button.disabled = true;
 
-            // Optional: Disable button after saving
-            const btn = document.getElementById(`save-${job.id}`);
-
-            if (btn) {
-
-                btn.innerText = "Saved ✓";
-                btn.disabled = true;
-
-            }
-
-        }
+}
 
         else {
 

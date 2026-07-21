@@ -217,147 +217,119 @@ userpassword.addEventListener(
 // Login Form Submit
 // ===========================================
 
-form.addEventListener("submit", async (e) => {
 
+loginForm.addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    clearErrors();
-
-    const valid =
-        validateUsername() &&
-        validatePassword();
-
-    if (!valid) {
-
-        return;
-
-    }
-
     loginBtn.disabled = true;
-
     loginBtn.textContent = "Logging in...";
 
-    const data = {
-
-        username: username.value.trim(),
-
-        userpassword: userpassword.value
-
-    };
-
     try {
+        const data = {
+            username: username.value,
+            userpassword: userpassword.value
+        };
 
         const response = await fetch("/login/", {
-
             method: "POST",
-
             headers: {
                 "Content-Type": "application/json"
             },
-
             credentials: "include",
-
             body: JSON.stringify(data)
-
         });
 
         const result = await response.json();
 
+        console.log("Response:", result);
+        console.log("Role:", result.role);
 
-        // ============================
-        // Login Success
-        // ============================
-
+        // Login Successful
         if (response.ok) {
 
-            serverMessage.style.color = "green";
-
-            serverMessage.textContent = result.msg;
-
-            setTimeout(() => {
-
-                window.location.href = "/jobs";
-
-                // Change this to "/dashboard"
-                // if your dashboard route exists.
-
-            }, 1000);
+            if (result.role === "admin") {
+                window.location.href = "/admin";
+            } else {
+                window.location.href = "/Search_job";
+            }
 
             return;
-
         }
 
-
-        // ============================
         // Login Failed
-        // ============================
+        if (response.status === 422) {
 
-        if (response.status === 401 ||
-            response.status === 404) {
+        result.detail.forEach(err => {
+
+        const field = err.loc[1];
+
+        if (field === "username") {
+            showError(
+                username,
+                usernameError,
+                err.msg
+            );
+        }
+
+        if (field === "userpassword") {
+            showError(
+                userpassword,
+                passwordError,
+                err.msg
+            );
+        }
+
+    });
+
+     return;
+}
+        if (response.status === 401 || response.status === 404) {
 
             const error = result.detail;
 
             switch (error.field) {
 
                 case "username":
-
                     showError(
                         username,
                         usernameError,
                         error.message
                     );
-
                     break;
 
                 case "userpassword":
-
                     showError(
                         userpassword,
                         passwordError,
                         error.message
                     );
-
                     break;
 
                 default:
-
                     serverMessage.style.color = "red";
-
-                    serverMessage.textContent =
-                        error.message;
-
+                    serverMessage.textContent = error.message;
             }
 
-        }
-
-        else {
+        } else {
 
             serverMessage.style.color = "red";
-
             serverMessage.textContent =
                 result.detail || "Login failed.";
 
         }
 
-    }
-
-    catch (error) {
+    } catch (error) {
 
         console.error(error);
 
         serverMessage.style.color = "red";
+        serverMessage.textContent = "Unable to connect to server.";
 
-        serverMessage.textContent =
-            "Unable to connect to server.";
-
-    }
-
-    finally {
+    } finally {
 
         loginBtn.disabled = false;
-
         loginBtn.textContent = "Login";
 
     }
-
 });
+

@@ -24,10 +24,15 @@ async def login(credential:Userlogin,response:Response):
         max_age=86400)
     print(response)
     print(response.headers)
-
+    user_id=validate_session(session_id)
+    role=check_role(user_id)
+    print(role)
+    print(type(role))
+    print(repr(role))
     
     return{
-        "msg":"Login Successfully"
+        "role":role,
+        "msg":"login successfully"
     }
 
 
@@ -42,4 +47,6 @@ async def logout_user(response:Response,Session_id:str|None=Cookie()):
     return {
         "msg": "Logged out successfully."
     }
+
+
 
