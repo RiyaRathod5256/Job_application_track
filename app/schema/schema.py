@@ -20,6 +20,13 @@ class User(BaseModel):
         
         return value
     
+    @field_validator("useremail")
+    @classmethod
+    def validate_email_length(cls, value):
+        if len(str(value)) > 254:
+            raise ValueError("Email cannot exceed 254 characters")
+        return value
+    
     @field_validator("userpassword")
     @classmethod
     def password_validate(cls,value):
