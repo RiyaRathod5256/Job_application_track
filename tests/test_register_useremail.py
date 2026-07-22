@@ -3,7 +3,7 @@ def test_register_email_length_pass(client):
     payload={
                     "username": "Yuvi",
                     "useremail": "yuvi@gmail.com",
-                    "userphonenumber": "8758345510",
+                    "userphonenumber": "6758345510",
                     "userpassword": "Pass@123",
                     "confirmpassword":"Pass@123"
                 }
@@ -16,9 +16,9 @@ def test_register_email_length_pass(client):
 def test_register_email_yahoo_pass(client):
 
     payload={
-                    "username": "Hriya",
-                    "useremail": "hriya@yahoo.com",
-                    "userphonenumber": "8701115765",
+                    "username": "jriya",
+                    "useremail": "jjriya@yahoo.com",
+                    "userphonenumber": "6701115765",
                     "userpassword": "Kagg@123",
                     "confirmpassword":"Kagg@123"
                 }
@@ -43,13 +43,13 @@ def test_register_email_length_fail(client):
 
     assert response.status_code==422
 
-def test_register_email_startdigit_fail(client):
+def test_register_email_startdigit_pass(client):
 
     payload={
         
                     "username": "Harshitajihu",
-                    "useremail": "444riya@gmail.com",
-                    "userphonenumber": "7176226622",
+                    "useremail": "904riya@gmail.com",
+                    "userphonenumber": "8176226622",
                     "userpassword": "Kiri@123",
                     "confirmpassword":"Kiri@123"
                 
@@ -299,4 +299,22 @@ def test_register_email_Comma_instead_of_dot__fail(client):
     response=client.post("/register/",json=payload)
 
     assert response.status_code==422
+
+def test_register_email_alreadyexist__fail(client):
+
+    payload={
+        
+                    "username": "Priya",
+                    "useremail": "harsh@gmail.com",
+                    "userphonenumber": "8876348810",
+                    "userpassword": "vOri@123",
+                    "confirmpassword":"vOri@123"
+                
+    }
+
+    response=client.post("/register/",json=payload)
+
+    assert response.status_code==409
+
+
 
