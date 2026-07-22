@@ -1,5 +1,7 @@
 def test_home(client):
+
     response=client.get("/")
+    
     print("Status Code:", response.status_code)
     print("Headers:", response.headers)
     print("Body:")

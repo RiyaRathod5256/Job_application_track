@@ -7,13 +7,12 @@ user_router=APIRouter()
 
 @user_router.post("/register/")
 async def register(user:User):
-    print(user)
+    
     return register_user(user)
     
 @user_router.post("/login/")
 async def login(credential:Userlogin,response:Response):
-    print(credential)
-
+    
     session_id=await login_user(credential)
 
     print("sessionid:",session_id)
@@ -22,13 +21,10 @@ async def login(credential:Userlogin,response:Response):
         samesite="lax",
         secure=False,   # True when using HTTPS in production
         max_age=86400)
-    print(response)
-    print(response.headers)
+    
     user_id=validate_session(session_id)
     role=check_role(user_id)
-    print(role)
-    print(type(role))
-    print(repr(role))
+    
     
     return{
         "role":role,

@@ -12,7 +12,8 @@ class User(BaseModel):
     @field_validator("username")#it says that you must validate this field before creation
     @classmethod# give reference of class and make function classmethod
     def username_validate(cls,value):
-        pattern = r"^(?!.*(.)\1{5,})[A-Za-z_](?:[A-Za-z0-9]|_(?=[A-Za-z0-9]))*$"
+        # pattern = r"^(?!.*(.)\1{5,})[A-Za-z_](?:[A-Za-z0-9]|_(?=[A-Za-z0-9]))*$"
+        pattern=r"^(?!.*__)(?!.*(.)\1{5,})[A-Za-z_](?:[A-Za-z0-9]|_(?=[A-Za-z0-9]))*$"
 
         if not re.fullmatch(pattern, value): # match the pattern with given value
             raise ValueError("Invalid username")

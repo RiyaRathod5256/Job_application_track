@@ -8,14 +8,13 @@ password_hash=PasswordHash.recommended()
 def register_user(user):
     
     conn=get_connection()
-    print(conn)
+    
     cursor=conn.cursor()
     try:
          #useremail exist
          cursor.execute("select useremail from users;")
          users=cursor.fetchall()
-         print(users)
-         print(user)
+         
          if user.useremail in users:
               raise HTTPException(status_code=409,detail={
         "field":"useremail",
